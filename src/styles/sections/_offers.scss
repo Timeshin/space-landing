@@ -1,0 +1,89 @@
+@use '../abstracts' as *;
+
+.offers {
+  @include container;
+  @include section-spacing(margin-top);
+
+  &__list {
+    display: grid;
+    gap: 32px;
+    margin-top: 32px;
+
+    @include media-up('tablet') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media-up('desktop') {
+      gap: 40px;
+      margin-top: 40px;
+    }
+  }
+
+  &__item:nth-child(3n + 1) {
+    @include media-up('desktop') {
+      grid-column: span 2;
+    }
+  }
+}
+
+.offer-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 20px;
+  min-height: 350px;
+  padding: 24px;
+  border-radius: var(--radius-card);
+
+  @include media-up('desktop') {
+    padding: 32px;
+  }
+
+  @each $variant in reality, planets, dreamers, dreams {
+    &--#{$variant} {
+      background:
+        var(--gradient-overlay),
+        bg-image('offer-#{$variant}') center / cover no-repeat;
+    }
+  }
+
+  &__title {
+    font-size: rem(40px);
+    font-weight: $font-weight-extra-bold;
+    line-height: 1;
+    white-space: pre-line;
+
+    @include media-up('desktop') {
+      font-size: rem(48px);
+    }
+  }
+
+  &__text {
+    font-size: rem(16px);
+
+    @include media-up('desktop') {
+      font-size: rem(24px);
+    }
+
+    &--full {
+      display: none;
+
+      @include media-up('desktop') {
+        display: block;
+      }
+    }
+
+    &--compact {
+      @include media-up('desktop') {
+        display: none;
+      }
+    }
+  }
+
+  &:nth-child(3n + 1) &__title {
+    @include media-up('desktop') {
+      font-size: rem(72px);
+    }
+  }
+}

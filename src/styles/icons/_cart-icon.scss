@@ -1,0 +1,18 @@
+@use '../abstracts' as *;
+
+.cart-icon {
+  @include hover {
+    .cart-icon__stop--start {
+      stop-color: with-opacity(--color-yellow, 60%);
+    }
+
+    .cart-icon__stop--end {
+      stop-color: with-opacity(--color-pink, 60%);
+    }
+  }
+
+  &__stop {
+    stop-color: var(--color-white);
+    transition: stop-color var(--transition-base);
+  }
+}

@@ -1,0 +1,16 @@
+@use 'sass:math';
+
+@function rem($px) {
+  @return math.div($px, 16px) * 1rem;
+}
+
+@function with-opacity($color-variable, $opacity) {
+  @return color-mix(in srgb, var(#{$color-variable}) $opacity, transparent);
+}
+
+@function bg-image($name) {
+  @return image-set(
+    url('@/assets/images/#{$name}.avif') type('image/avif'),
+    url('@/assets/images/#{$name}.webp') type('image/webp')
+  );
+}

@@ -1,0 +1,78 @@
+@use '../abstracts' as *;
+
+@mixin button-small {
+  padding-block: 4px;
+  font-size: rem(16px);
+  line-height: 1.25;
+}
+
+@mixin button-large {
+  padding-block: 12px;
+  font-size: rem(20px);
+  line-height: 1.4;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 40px;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    color var(--transition-base);
+
+  &--sm {
+    @include button-small;
+  }
+
+  &--lg {
+    @include button-large;
+  }
+
+  &--tablet-sm {
+    @include media-up('tablet') {
+      @include button-small;
+    }
+  }
+
+  &--tablet-lg {
+    @include media-up('tablet') {
+      @include button-large;
+    }
+  }
+
+  &--desktop-sm {
+    @include media-up('desktop') {
+      @include button-small;
+    }
+  }
+
+  &--desktop-lg {
+    @include media-up('desktop') {
+      @include button-large;
+    }
+  }
+
+  &--primary {
+    background-color: var(--color-primary);
+    color: var(--color-black);
+
+    @include hover {
+      background-color: var(--color-primary-muted);
+      border-color: transparent;
+    }
+  }
+
+  &--secondary {
+    color: var(--color-primary);
+
+    @include hover {
+      border-color: var(--color-primary-muted);
+      color: var(--color-primary-muted);
+    }
+  }
+}

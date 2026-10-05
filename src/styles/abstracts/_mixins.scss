@@ -1,0 +1,46 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+@mixin media-up($breakpoint) {
+  @if $breakpoint == 'base' {
+    @content;
+  } @else {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin-inline: auto;
+
+  @each $breakpoint, $padding in $container-paddings {
+    @include media-up($breakpoint) {
+      padding-inline: $padding;
+    }
+  }
+}
+
+@mixin section-spacing($property) {
+  @each $breakpoint, $value in $section-spacing {
+    @include media-up($breakpoint) {
+      #{$property}: $value;
+    }
+  }
+}
+
+@mixin gradient-text($gradient) {
+  background: $gradient;
+  background-clip: text;
+  color: transparent;
+}

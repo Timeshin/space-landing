@@ -1,0 +1,33 @@
+@use '../abstracts' as *;
+
+:root {
+  @each $name, $value in $palette {
+    --color-#{$name}: #{$value};
+  }
+
+  --color-primary: var(--color-yellow);
+  --color-primary-muted: #{with-opacity(--color-yellow, 60%)};
+  --color-accent: var(--color-pink);
+  --color-text: var(--color-white);
+  --color-text-muted: #{with-opacity(--color-white, 60%)};
+  --color-surface: var(--color-black);
+  --color-menu: var(--color-navy);
+
+  --gradient-page: linear-gradient(196.2deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+  --gradient-link-hover: linear-gradient(98.25deg, var(--color-yellow) 18.56%, var(--color-pink) 76.02%);
+  --gradient-overlay: linear-gradient(180deg, transparent 0%, rgb(15 20 32 / 79%) 100%);
+  --gradient-hero-overlay: linear-gradient(rgb(0 0 0 / 35%), rgb(0 0 0 / 35%));
+
+  --font-family-base: 'Lato', system-ui, sans-serif;
+
+  --radius-card: 12px;
+  --radius-pill: 100px;
+
+  --transition-base: 0.2s ease;
+
+  --header-height: #{$header-height};
+
+  @include media-up('tablet') {
+    --header-height: #{$header-height-tablet};
+  }
+}

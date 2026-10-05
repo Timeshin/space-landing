@@ -1,0 +1,90 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+.hero {
+  display: flex;
+  align-items: flex-end;
+  min-height: 452px;
+  padding-block: 48px;
+  background:
+    bg-image('earth') center top -72px / 272px auto no-repeat,
+    var(--gradient-hero-overlay),
+    bg-image('hero-space') center bottom / cover no-repeat;
+
+  @include media-up('tablet') {
+    align-items: center;
+    min-height: 420px;
+    background-position:
+      right -120px top,
+      center,
+      center bottom;
+    background-size:
+      352px auto,
+      cover,
+      cover;
+  }
+
+  @include media-up('desktop') {
+    min-height: 490px;
+    background-position:
+      right calc(50vw - #{$container-max-width * 0.5 - map.get($container-paddings, 'desktop')}) center,
+      center,
+      center bottom;
+    background-size:
+      360px auto,
+      cover,
+      cover;
+  }
+
+  &__inner {
+    @include container;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+
+    @include media-up('tablet') {
+      align-items: flex-start;
+      gap: 24px;
+      text-align: left;
+    }
+  }
+
+  &__title {
+    max-width: 9em;
+    font-size: rem(36px);
+    font-weight: $font-weight-extra-bold;
+    line-height: 1;
+    text-wrap: balance;
+
+    @include media-up('tablet') {
+      font-size: rem(48px);
+    }
+
+    @include media-up('desktop') {
+      font-size: rem(72px);
+    }
+  }
+
+  &__subtitle {
+    font-size: rem(16px);
+
+    @include media-up('tablet') {
+      font-size: rem(24px);
+    }
+
+    @include media-up('desktop') {
+      font-size: rem(32px);
+    }
+  }
+
+  &__accent {
+    color: var(--color-accent);
+
+    &--primary {
+      color: var(--color-primary);
+    }
+  }
+}

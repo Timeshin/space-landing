@@ -1,0 +1,33 @@
+$palette: (
+  'pink': #ff70d9,
+  'yellow': #ebff00,
+  'navy': #0d1e48,
+  'navy-light': #304571,
+  'black': #000,
+  'white': #fff
+);
+
+$breakpoints: (
+  'tablet': 768px,
+  'desktop': 1024px
+);
+
+$container-max-width: 1248px;
+
+$container-paddings: (
+  'base': 20px,
+  'tablet': 32px,
+  'desktop': 80px
+);
+
+$section-spacing: (
+  'base': 48px,
+  'tablet': 56px,
+  'desktop': 64px
+);
+
+$header-height: 48px;
+$header-height-tablet: 80px;
+
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
