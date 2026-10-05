@@ -17,6 +17,7 @@
 ## Запуск
 
 ```bash
+nvm use
 npm ci
 npm run dev
 ```
